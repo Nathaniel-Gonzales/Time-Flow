@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Time Flow"
 include(":app")
- 
