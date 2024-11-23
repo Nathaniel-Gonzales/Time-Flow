@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121">
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="411dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="188dp"
+        android:text="TIME FLOW"
+        android:textAlignment="center"
+        android:textColor="#7AACAC"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainButtonTimer"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="420dp"
+        android:onClick="launchTimer"
+        android:text="Timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainButtonCalendar"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:onClick="launchCalendar"
+        android:text="Calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainButtonTimer" />
+
+    <Button
+        android:id="@+id/mainButtonSummary"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:onClick="launchSummary"
+        android:text="Summaries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainButtonCalendar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
