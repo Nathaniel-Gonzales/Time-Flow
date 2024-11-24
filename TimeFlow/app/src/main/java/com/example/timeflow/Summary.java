@@ -1,21 +1,16 @@
 package com.example.timeflow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 public class Summary extends AppCompatActivity {
 
@@ -25,47 +20,36 @@ public class Summary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
+        ListView summaryListView = findViewById(R.id.summaryListView);
+        File filePath = new File("/data/user/0/com.example.timeflow/files");
+        ArrayList<String> summaryFiles = new ArrayList<>();
+        fetchFiles(summaryFiles, filePath);
+        ArrayAdapter<String> summaryStringArrayToListView = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, summaryFiles);
+        summaryListView.setAdapter(summaryStringArrayToListView);
+
     }
 
-    public void summarySave(View v) {
+    public void fetchFiles(ArrayList<String> summaryFiles, File filePath) {
 
-        EditText summaryInput = findViewById(R.id.summaryInput);
-        String summaryString = summaryInput.getText().toString();
-        String fileName = "example.txt";
-        File filePath = getApplicationContext().getFilesDir();
-        try {
+        File[] filesArray = filePath.listFiles();
+        assert filesArray != null;
+        for(File f : filesArray) {
 
-            FileOutputStream summaryWriteToFile = new FileOutputStream(new File(filePath, fileName));
-            summaryWriteToFile.write(summaryString.getBytes());
-            summaryWriteToFile.close();
+            if(f.isFile() && f.getPath().endsWith(".txt") && f.getName().startsWith("sumedit")) {  //  && f.getPath().startsWith("sumedit")
 
-        }catch (Exception e) {
+                summaryFiles.add(f.getName().replaceAll(".txt", "").replaceAll("sumedit", ""));
 
-            return;
+            }
 
         }
 
     }
 
-    public void summaryRead(View v) {
+    public void launchSummaryEdit(View v) {
 
-        TextView summaryOutput = findViewById(R.id.summaryOutput);
-        String fileName = "example.txt";
-        File filePath = getApplicationContext().getFilesDir();
-        File summaryFile = new File(filePath, fileName);
-        byte[] summaryByteArray = new byte[(int) summaryFile.length()];
-        try {
-
-            FileInputStream summaryReadFile = new FileInputStream(summaryFile);
-            summaryReadFile.read(summaryByteArray);
-            String summaryByteArrayToString = new String(summaryByteArray);
-            summaryOutput.setText(summaryByteArrayToString);
-
-        } catch (Exception e) {
-
-            return;
-
-        }
+        // launches a new activity
+        Intent i = new Intent(this, SummaryEdit.class);
+        startActivity(i);
 
     }
 

@@ -1,19 +1,14 @@
-/*
-* Time Flow version 1.0
-*
-*
-*
-* */
-
 package com.example.timeflow;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.FileInputStream;
 
 public class Main extends AppCompatActivity {
 
@@ -22,6 +17,25 @@ public class Main extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView welcome = findViewById(R.id.mainWelcome);
+        String fileName = "timeflowName.txt";
+        File filePath = getApplicationContext().getFilesDir();
+        File nameFile = new File(filePath, fileName);
+        byte[] nameByteArray = new byte[(int) nameFile.length()];
+        try {
+
+            FileInputStream nameReadFile = new FileInputStream(nameFile);
+            nameReadFile.read(nameByteArray);
+            String nameByteArrayToString = new String(nameByteArray);
+            welcome.setText("Hello " + nameByteArrayToString + "!");
+
+        } catch (Exception e) {
+
+            return;
+
+        }
+
 
     }
 
@@ -48,34 +62,5 @@ public class Main extends AppCompatActivity {
         startActivity(i);
 
     }
-
-
-//    public void handleText(View v) {
-//
-//        TextView t = findViewById(R.id.source);
-//        String input = t.getText().toString();
-//
-//        TextView tO = findViewById(R.id.sourceOutput);
-//        tO.setText(input);
-//
-//        ((TextView)findViewById(R.id.sourceOutput)).setText(input);
-//
-//    }
-
-
-    /*
-    public void disable(View v) {
-
-        View myView = findViewById(R.id.button4);
-        myView.setEnabled(false);
-        Button button = (Button) myView;
-        button.setText("disabled");
-
-        v.setEnabled(false);
-        Button button = (Button) v;
-        button.setText("disabled");
-
-    }
-    */
 
 }
