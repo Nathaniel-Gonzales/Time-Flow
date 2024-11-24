@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    tools:context=".CalendarEdit">
+
+    <TextView
+        android:id="@+id/calendarEditMain"
+        android:layout_width="195dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="140dp"
+        android:text="CALENDAR"
+        android:textAlignment="center"
+        android:textColor="#7AACAC"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/calendarEditFileName"
+        android:layout_width="320dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter file name"
+        android:inputType="textMultiLine"
+        android:textColor="#7AACAC"
+        android:textColorHint="#7AACAC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calendarEditSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="calendarSave"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/calendarEditDeleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="calendarDelete"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calendarEditViewbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="calendarRead"
+        android:text="View"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calendarEditToCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#E24654"
+        android:onClick="exitCalendarEdit"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/calendarEditInOut"
+        android:layout_width="378dp"
+        android:layout_height="457dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="#7AACAC"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter text here..."
+        android:inputType="textMultiLine"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarEditFileName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212121"
+    android:textAlignment="inherit"
     tools:context=".Summary">
 
     <TextView
@@ -12,8 +14,9 @@
         android:layout_width="195dp"
         android:layout_height="55dp"
         android:layout_marginTop="140dp"
-        android:text="Summaries"
+        android:text="SUMMARIES"
         android:textAlignment="center"
+        android:textColor="#7AACAC"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -26,59 +29,42 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#E24654"
         android:onClick="exitSummary"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/summaryInput"
-        android:layout_width="221dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="272dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Enter summary here"
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="570dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/summaryOutput"
-        android:layout_width="332dp"
-        android:layout_height="307dp"
-        android:layout_marginTop="456dp"
-        android:text="Read summary here"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ListView
+            android:id="@+id/summaryListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#7AACAC" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/summaryWriteButton"
+        android:id="@+id/summaryEditButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:onClick="summarySave"
-        android:text="Write"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="launchSummaryEdit"
+        android:text="Add / Edit / Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/summaryReadButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:onClick="summaryRead"
-        android:text="Read"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

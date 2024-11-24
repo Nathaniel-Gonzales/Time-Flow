@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    tools:context=".PinRegister">
+
+    <TextView
+        android:id="@+id/pinRegisterTitle"
+        android:layout_width="411dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="188dp"
+        android:text="TIME FLOW"
+        android:textAlignment="center"
+        android:textColor="#7AACAC"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pinRegisterNameDirections"
+        android:layout_width="203dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="344dp"
+        android:text="Enter your name:"
+        android:textAlignment="center"
+        android:textColor="#7AACAC"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pinRegisterName"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="#7AACAC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinRegisterNameDirections"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/pinRegisterPinDirections"
+        android:layout_width="203dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="450dp"
+        android:text="Enter your pin:"
+        android:textAlignment="center"
+        android:textColor="#7AACAC"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pinRegisterPin"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="#7AACAC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinRegisterPinDirections"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="registerUser"
+        android:text="Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinRegisterPin" />
+
+    <Button
+        android:id="@+id/pinRegisterToPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#E24654"
+        android:onClick="exitPinRegister"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

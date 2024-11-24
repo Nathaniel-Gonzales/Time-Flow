@@ -71,4 +71,11 @@ public class Pin extends AppCompatActivity {
 
     }
 
+    public void enterPinRegister(View v) {
+
+        Intent i = new Intent(this, PinRegister.class);
+        startActivity(i);
+
+    }
+
 }

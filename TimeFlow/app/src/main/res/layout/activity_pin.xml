@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/summaryEditMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
@@ -51,15 +51,28 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/pinButton"
+        android:id="@+id/pinToMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="484dp"
+        android:backgroundTint="#7AACAC"
         android:onClick="verifyPin"
         android:text="Enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pinToPinRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#7AACAC"
+        android:onClick="enterPinRegister"
+        android:text="Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinToMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
