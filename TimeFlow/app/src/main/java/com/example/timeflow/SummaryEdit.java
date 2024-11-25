@@ -35,12 +35,22 @@ public class SummaryEdit extends AppCompatActivity {
         File filePath = getApplicationContext().getFilesDir();
         try {
 
+            if(fileName.replaceAll("sumedit", "").replaceAll(".txt", "").isEmpty()) {
+
+                throw new Exception();
+
+            }
+
             FileOutputStream summaryWriteToFile = new FileOutputStream(new File(filePath, fileName));
             summaryWriteToFile.write(summaryString.getBytes());
             summaryWriteToFile.close();
+            summaryName.setHint("Enter file name");
+            summaryName.setHintTextColor(Color.parseColor("#7AACAC"));
 
         }catch (Exception e) {
 
+            summaryName.setHint("Error occured during event saving.");
+            summaryName.setHintTextColor(Color.RED);
             return;
 
         }
@@ -57,13 +67,23 @@ public class SummaryEdit extends AppCompatActivity {
         byte[] summaryByteArray = new byte[(int) summaryFile.length()];
         try {
 
+            if(!summaryFile.exists() || fileName.replaceAll("sumedit", "").replaceAll(".txt", "").isEmpty()) {
+
+                throw new Exception();
+
+            }
+
             FileInputStream summaryReadFile = new FileInputStream(summaryFile);
             summaryReadFile.read(summaryByteArray);
             String summaryByteArrayToString = new String(summaryByteArray);
             summaryOutput.setText(summaryByteArrayToString);
+            summaryName.setHint("Enter file name");
+            summaryName.setHintTextColor(Color.parseColor("#7AACAC"));
 
         } catch (Exception e) {
 
+            summaryName.setHint("File does not exist.");
+            summaryName.setHintTextColor(Color.RED);
             return;
 
         }
@@ -81,6 +101,12 @@ public class SummaryEdit extends AppCompatActivity {
 
             if(summaryFile.exists()) {
 
+                if(!summaryFile.exists() || fileName.replaceAll("sumedit", "").replaceAll(".txt", "").isEmpty()) {
+
+                    throw new Exception();
+
+                }
+
                 summaryFile.delete();
                 summaryName.setText("");
                 summaryName.setHint("File successfully deleted.");
@@ -94,6 +120,7 @@ public class SummaryEdit extends AppCompatActivity {
 
             summaryName.setHint("File does not exist.");
             summaryName.setHintTextColor(Color.RED);
+            return;
 
         }
 

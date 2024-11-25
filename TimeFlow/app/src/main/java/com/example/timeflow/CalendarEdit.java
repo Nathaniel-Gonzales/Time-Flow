@@ -23,8 +23,6 @@ public class CalendarEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_edit);
 
-
-
     }
 
     public void calendarSave(View v) {
@@ -36,12 +34,22 @@ public class CalendarEdit extends AppCompatActivity {
         File filePath = getApplicationContext().getFilesDir();
         try {
 
+            if(fileName.replaceAll("sumedit", "").replaceAll(".txt", "").isEmpty()) {
+
+                throw new Exception();
+
+            }
+
             FileOutputStream calendarWriteToFile = new FileOutputStream(new File(filePath, fileName));
             calendarWriteToFile.write(calendarString.getBytes());
             calendarWriteToFile.close();
+            calendarName.setHint("Enter event name");
+            calendarName.setHintTextColor(Color.parseColor("#7AACAC"));
 
         }catch (Exception e) {
 
+            calendarName.setHint("Error occured during event saving.");
+            calendarName.setHintTextColor(Color.RED);
             return;
 
         }
@@ -58,13 +66,23 @@ public class CalendarEdit extends AppCompatActivity {
         byte[] calendarByteArray = new byte[(int) calendarFile.length()];
         try {
 
+            if(fileName.replaceAll("sumedit", "").replaceAll(".txt", "").isEmpty()) {
+
+                throw new Exception();
+
+            }
+
             FileInputStream calendarReadFile = new FileInputStream(calendarFile);
             calendarReadFile.read(calendarByteArray);
             String calendarByteArrayToString = new String(calendarByteArray);
             calendarOutput.setText(calendarByteArrayToString);
+            calendarName.setHint("Enter event name");
+            calendarName.setHintTextColor(Color.parseColor("#7AACAC"));
 
         } catch (Exception e) {
 
+            calendarName.setHint("Event does not exist.");
+            calendarName.setHintTextColor(Color.RED);
             return;
 
         }
@@ -84,7 +102,7 @@ public class CalendarEdit extends AppCompatActivity {
 
                 calendarFile.delete();
                 calendarName.setText("");
-                calendarName.setHint("File successfully deleted.");
+                calendarName.setHint("Event successfully deleted.");
                 calendarName.setHintTextColor(Color.parseColor("#7AACAC"));
 
             }
@@ -93,7 +111,7 @@ public class CalendarEdit extends AppCompatActivity {
 
         } catch(Exception e) {
 
-            calendarName.setHint("File does not exist.");
+            calendarName.setHint("Event does not exist.");
             calendarName.setHintTextColor(Color.RED);
 
         }

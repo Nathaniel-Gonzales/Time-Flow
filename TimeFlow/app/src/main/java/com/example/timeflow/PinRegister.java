@@ -23,7 +23,7 @@ public class PinRegister extends AppCompatActivity {
 
     public void registerUser(View v) {
 
-        // timeflowPin.txt
+        // Registers user's name
         TextView pinRegisterNameDirections = findViewById(R.id.pinRegisterNameDirections);
         EditText pinRegisterName = findViewById(R.id.pinRegisterName);
         String pinRegisterNameString = pinRegisterName.getText().toString();
@@ -31,7 +31,7 @@ public class PinRegister extends AppCompatActivity {
         File filePath = getApplicationContext().getFilesDir();
         try {
 
-            if(pinRegisterNameString == "") {
+            if(pinRegisterNameString.isEmpty()) {
 
                 throw new Exception();
 
@@ -40,6 +40,7 @@ public class PinRegister extends AppCompatActivity {
             FileOutputStream pinRegisterNameWriteToFile = new FileOutputStream(new File(filePath, fileName));
             pinRegisterNameWriteToFile.write(pinRegisterNameString.getBytes());
             pinRegisterNameWriteToFile.close();
+            pinRegisterNameDirections.setText("Name Saved!");
             pinRegisterNameDirections.setTextColor(Color.parseColor("#7AACAC"));
 
         }catch (Exception e) {
@@ -56,12 +57,18 @@ public class PinRegister extends AppCompatActivity {
         String filePin = "timeflowPin.txt";
         File pinFile = new File(filePath, filePin);
         byte[] pinByteArray = new byte[(int) pinRegisterPinString.length()];
-
         try {
+
+            if(pinRegisterPinString.isEmpty()) {
+
+                throw new Exception();
+
+            }
 
             FileOutputStream pinRegisterPinWriteToFile = new FileOutputStream(pinFile);
             pinRegisterPinWriteToFile.write(pinRegisterPinString.getBytes());
             pinRegisterPinWriteToFile.close();
+            pinRegisterPinDirections.setText("Pin Saved!");
             pinRegisterPinDirections.setTextColor(Color.parseColor("#7AACAC"));
 
         } catch(Exception e) {

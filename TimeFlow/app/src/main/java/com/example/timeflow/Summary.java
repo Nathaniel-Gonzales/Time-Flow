@@ -35,9 +35,11 @@ public class Summary extends AppCompatActivity {
         assert filesArray != null;
         for(File f : filesArray) {
 
-            if(f.isFile() && f.getPath().endsWith(".txt") && f.getName().startsWith("sumedit")) {  //  && f.getPath().startsWith("sumedit")
+            if(f.isFile() && f.getPath().endsWith(".txt") &&
+                    f.getName().startsWith("sumedit")) {
 
-                summaryFiles.add(f.getName().replaceAll(".txt", "").replaceAll("sumedit", ""));
+                summaryFiles.add(f.getName().replaceAll(".txt", "")
+                        .replaceAll("sumedit", ""));
 
             }
 
