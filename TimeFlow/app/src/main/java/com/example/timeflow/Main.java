@@ -18,11 +18,14 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initializing all output fields, and displays user's name
         TextView welcome = findViewById(R.id.mainWelcome);
         String fileName = "timeflowName.txt";
         File filePath = getApplicationContext().getFilesDir();
         File nameFile = new File(filePath, fileName);
         byte[] nameByteArray = new byte[(int) nameFile.length()];
+
+        // Checks that user's name is saved, else shows basic "Welcome!" message
         try {
 
             FileInputStream nameReadFile = new FileInputStream(nameFile);
@@ -36,9 +39,9 @@ public class Main extends AppCompatActivity {
 
         }
 
-
     }
 
+    // Changes activity to timer screen
     public void launchTimer(View v) {
 
         // launches a new activity
@@ -47,6 +50,7 @@ public class Main extends AppCompatActivity {
 
     }
 
+    // Changes activity to calendar screen
     public void launchCalendar(View v) {
 
         // launches a new activity
@@ -55,6 +59,7 @@ public class Main extends AppCompatActivity {
 
     }
 
+    // Changes activity to summary screen
     public void launchSummary(View v) {
 
         // launches a new activity

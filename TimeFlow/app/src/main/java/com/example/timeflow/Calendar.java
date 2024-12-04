@@ -23,6 +23,7 @@ public class Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        // Reads all stored and labelled calendar .txt files, then displays to a listview
         ListView calendarListView = findViewById(R.id.calendarListView);
         File filePath = new File("/data/user/0/com.example.timeflow/files");
         ArrayList<String> calendarFiles = new ArrayList<>();
@@ -34,6 +35,7 @@ public class Calendar extends AppCompatActivity {
 
     public void fetchFiles(ArrayList<String> calendarFiles, File filePath) {
 
+        // Returns an array of all files with prefix "caledit" and suffix of ".txt"
         File[] filesArray = filePath.listFiles();
         assert filesArray != null;
         for(File f : filesArray) {
@@ -48,6 +50,7 @@ public class Calendar extends AppCompatActivity {
 
     }
 
+    // Changes activity to calendar edit screen
     public void launchCalendarEdit(View v) {
 
         // launches a new activity
@@ -56,6 +59,7 @@ public class Calendar extends AppCompatActivity {
 
     }
 
+    // Returns to main hub screen
     public void exitCalendar(View v) {
 
         finish();

@@ -20,6 +20,7 @@ public class Summary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
 
+        // Reads all stored and labelled summary .txt files, then displays to a listview
         ListView summaryListView = findViewById(R.id.summaryListView);
         File filePath = new File("/data/user/0/com.example.timeflow/files");
         ArrayList<String> summaryFiles = new ArrayList<>();
@@ -31,6 +32,7 @@ public class Summary extends AppCompatActivity {
 
     public void fetchFiles(ArrayList<String> summaryFiles, File filePath) {
 
+        // Returns an array of all files with prefix "sumedit" and suffix of ".txt"
         File[] filesArray = filePath.listFiles();
         assert filesArray != null;
         for(File f : filesArray) {
@@ -47,6 +49,7 @@ public class Summary extends AppCompatActivity {
 
     }
 
+    // Changes activity to summary edit screen
     public void launchSummaryEdit(View v) {
 
         // launches a new activity
@@ -55,6 +58,7 @@ public class Summary extends AppCompatActivity {
 
     }
 
+    // Returns to main hub screen
     public void exitSummary(View v) {
 
         finish();

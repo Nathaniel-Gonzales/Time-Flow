@@ -29,6 +29,8 @@ public class PinRegister extends AppCompatActivity {
         String pinRegisterNameString = pinRegisterName.getText().toString();
         String fileName = "timeflowName.txt";
         File filePath = getApplicationContext().getFilesDir();
+
+        // Throws error message if user input is empty, else saves user's name to file
         try {
 
             if(pinRegisterNameString.isEmpty()) {
@@ -51,12 +53,15 @@ public class PinRegister extends AppCompatActivity {
 
         }
 
+        // Registers user's new pin
         TextView pinRegisterPinDirections = findViewById(R.id.pinRegisterPinDirections);
         EditText pinRegisterPin = findViewById(R.id.pinRegisterPin);
         String pinRegisterPinString = pinRegisterPin.getText().toString();
         String filePin = "timeflowPin.txt";
         File pinFile = new File(filePath, filePin);
         byte[] pinByteArray = new byte[(int) pinRegisterPinString.length()];
+
+        // Throws error message if user input is empty, else saves user pin
         try {
 
             if(pinRegisterPinString.isEmpty()) {
@@ -81,6 +86,7 @@ public class PinRegister extends AppCompatActivity {
 
     }
 
+    // Returns to pin entry screen
     public void exitPinRegister(View v) {
 
         finish();
